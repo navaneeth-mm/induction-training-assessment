@@ -43,7 +43,7 @@ li:last-child{margin-bottom:0}
 .option-btn{background:var(--card);color:var(--tx);border:1.5px solid var(--line);padding:15px 16px;border-radius:10px;text-align:left;font-size:15.5px;line-height:1.4;cursor:pointer;transition:.2s;outline:none;display:flex;gap:12px;font-family:inherit}
 .option-btn b{color:var(--g2);flex:0 0 auto}
 .option-btn:active,.option-btn.sel{background:var(--tint);border-color:var(--g1)}
-.chart-row{margin-bottom:15px;text-align:left}.chart-label{font-size:13px;margin-bottom:5px;display:flex;justify-content:space-between;font-weight:600;color:var(--head)}.chart-bar-bg{background:var(--bar);height:16px;border-radius:8px;overflow:hidden}.chart-bar-fill{height:100%;border-radius:8px;background:var(--grad);width:0;transition:width 1s ease-out}.prof-title{font-size:15px;color:var(--mg);text-transform:uppercase;letter-spacing:1px;margin:0 0 8px}.prof-total{font-size:26px;font-weight:800;margin-bottom:6px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.save-status{font-size:14px;font-weight:700;padding:10px;border-radius:8px;background:var(--box);color:var(--mg)}.save-status.ok{background:var(--note-bg);color:var(--note)}.save-status.bad{background:#fdecea;color:#c0392b}.fine{font-size:12px;color:var(--mg);line-height:1.5;text-align:left;margin-top:16px}.final-note{font-size:15px;font-weight:700;margin-top:24px;line-height:1.5;padding:15px;border-radius:8px;background:var(--note-bg);color:var(--note)}
+.chart-row{margin-bottom:15px;text-align:left}.chart-label{font-size:13px;margin-bottom:5px;display:flex;justify-content:space-between;font-weight:600;color:var(--head)}.chart-bar-bg{background:var(--bar);height:8px;border-radius:4px;overflow:hidden}.chart-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#1FA463 0%,#8CC63F 55%,#F7C913 100%);width:0;transition:width 1s ease-out}.info-card{background:var(--box);border-radius:8px;padding:14px 16px;text-align:left;margin-bottom:20px;border-left:4px solid var(--g1)}.info-row{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:5px 0;color:var(--sub)}.info-row b{color:var(--head);text-align:right;word-break:break-word}.prof-title{font-size:15px;color:var(--mg);text-transform:uppercase;letter-spacing:1px;margin:0 0 8px}.prof-total{font-size:26px;font-weight:800;margin-bottom:6px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.save-status{font-size:14px;font-weight:700;padding:10px;border-radius:8px;background:var(--box);color:var(--mg)}.save-status.ok{background:var(--note-bg);color:var(--note)}.save-status.bad{background:#fdecea;color:#c0392b}.fine{font-size:12px;color:var(--mg);line-height:1.5;text-align:left;margin-top:16px}.final-note{font-size:15px;font-weight:700;margin-top:24px;line-height:1.5;padding:15px;border-radius:8px;background:var(--note-bg);color:var(--note)}
 .tbl{overflow-x:auto;text-align:left;margin-top:14px}
 .tbl table{border-collapse:collapse;font-size:12px;min-width:100%;white-space:nowrap}
 .tbl th,.tbl td{padding:6px 8px;border-bottom:1px solid var(--line)}
@@ -58,15 +58,14 @@ footer{padding:20px;font-size:11px;color:#aaa;text-align:center;text-transform:u
 
 <div id="intro-screen" class="content">
 <h1 class="main-title">Induction Behavioural Questionnaire</h1>
-<h2 class="sub-title">For new employees</h2>
-<p class="welcome-text">40 short workplace situations. Imagine you are working in a myG electronics store.</p>
+<p class="welcome-text">25 Workplace Scenarios: What Would You Do?</p>
 <div class="info-box"><h4>Quick Guide:</h4><ul class="info-list">
-<li>40 questions. About 30–40 minutes. No timer.</li>
+<li>25 questions. About 15–20 minutes.</li>
 <li>Pick <b>one</b> option (A, B, C or D). Tap to go to the next question.</li>
-<li>No right or wrong marks. No product knowledge needed.</li>
+<li>There are no right or wrong answers. Answer honestly.</li>
 <li>Your answers are used only to plan your learning support.</li></ul></div>
-<div class="tips-box"><h4>Tips:</h4><ul class="tips-list">
-<li>Choose what you would <b>really</b> do</li><li>Not what you think others want to hear</li></ul></div>
+<div class="tips-box"><h4>Tip:</h4><ul class="tips-list">
+<li>Choose what you would <b>really</b> do, not what you think others want to hear.</li></ul></div>
 <div class="form">
 <label for="f-name">Name</label><input id="f-name" autocomplete="off">
 <label for="f-id">Employee ID</label><input id="f-id" autocomplete="off">
@@ -87,7 +86,7 @@ footer{padding:20px;font-size:11px;color:#aaa;text-align:center;text-transform:u
 <h1 class="main-title">Thank you!</h1>
 <p class="welcome-text" id="done-msg">Your answers will be used only to plan your learning and development support.</p>
 <div class="save-status" id="save-status"></div><button class="btn-primary" id="retry-btn" style="display:none;padding:10px 40px;font-size:15px;margin-top:10px" onclick="send()">Retry</button>
-<div id="result-area" style="display:none"><hr style="border:0;border-top:1px solid var(--line);margin:22px 0"><h2 class="prof-title">Your Profile</h2><div id="res-total" class="prof-total"></div><div id="res-flags" class="fine" style="text-align:center;margin:0 0 20px"></div><div id="res-bars"></div><div class="fine">These scores show behavioural tendencies in this questionnaire at this point in time. They are used to plan your learning support. They are not a pass/fail result.</div></div>
+<div id="result-area" style="display:none"><hr style="border:0;border-top:1px solid var(--line);margin:22px 0"><h2 class="prof-title">Your Details</h2><div class="info-card" id="res-info"></div><h2 class="prof-title">Your Profile</h2><div id="res-total" class="prof-total"></div><div id="res-flags" class="fine" style="text-align:center;margin:0 0 20px"></div><div id="res-bars"></div><div class="fine">These scores show behavioural tendencies in this questionnaire at this point in time. They are used to plan your learning support. They are not a pass/fail result.</div></div>
 <div class="final-note" id="done-note">Please share this screen with your trainer.</div>
 </div>
 
@@ -103,44 +102,29 @@ var Q=[
 ["After a practice role-play, your trainer says you spoke too fast and did not listen to the customer’s questions. How would you respond?","Explain that I was nervous and that is why it happened.","Feel that a role-play is not like real life, so the feedback may not apply.","Ask the trainer to show me an example of what to do differently, and practise again.","Accept the feedback and try to do better in the next session."],
 ["A customer says, “I only want to see phones under ₹15,000.” You have a phone at ₹17,000 that is much better. What would you do first?","Show the ₹17,000 phone first, because it gives better value.","Show two or three good phones within the budget, and mention the ₹17,000 phone only if it fits what they need.","Show only phones under ₹15,000, exactly as the customer asked.","Let the customer look at the display and ask them to call me when they decide."],
 ["A customer asks for a phone model that is not in stock in your store. What would you most likely do?","Tell them to check other shops.","Show the closest similar phone that is in stock.","Say sorry, it is not available, and ask if they want to see anything else.","Check if another store has it and tell them the options. If not, suggest a close alternative and explain the differences honestly."],
-["Keeping your display area tidy is part of your daily work. Today you are busy with customers, and a colleague says, “Someone else will do it.” Which action is closest to your usual response?","Leave it, because it is not my main job.","Do it only if my supervisor asks.","Serve customers first, then tidy my part in the next quiet time and tell the team.","Quickly tidy only the parts that customers see first."],
+["You find out that you undercharged a customer by ₹500 yesterday. The customer has already left. What would you do first?","Wait and see if anyone notices.","Tell my supervisor today and ask how to correct it.","Pay the ₹500 from my own pocket so it is settled.","Quietly change the entry in the system."],
 ["Because of a staff shortage, your manager moves you from the mobile section to home appliances for a month. You know little about these products. What would you do first?","Ask a colleague for the main things customers ask about, learn on the shop floor, and tell the manager what support I need.","Tell the manager I am not suitable, as I only know phones.","Accept the change, but call a colleague for any customer who asks more than basic questions.","Read the product tags and leaflets on my own during the first few days."],
 ["You gave a customer wrong information about a warranty. A colleague tells you after the customer has left. Which action is closest to your usual response?","Thank my colleague, find the right answer, and contact the customer to correct it.","Feel bad about it, but prefer not to bring it up again.","Say that I was told the wrong thing earlier.","Learn the right information and make sure I give it correctly next time."],
 ["It is the last two days of the month and your team is behind on its target. A customer comparing two TVs says, “I will think about it.” How would you respond?","Tell them stock is limited, so it is better to decide now.","Let them go and give my time to customers who are ready to buy.","Ask what they are still unsure about, answer it, and offer to call them later if they agree.","Give them my name and the model details and leave it to them."],
-["A customer asks you the same question about a phone feature for the third time. Other customers are waiting. What would you most likely do?","Explain again in simpler words, tell the waiting customers I will be with them shortly, and ask a colleague to help if possible.","Tell them I have already explained it and ask them to listen carefully.","Give a short answer and move on to the next customer.","Give them the product leaflet to read and attend to the others."],
-["You find out that you undercharged a customer by ₹500 yesterday. The customer has already left. What would you do first?","Wait and see if anyone notices.","Tell my supervisor today and ask how to correct it.","Pay the ₹500 from my own pocket so it is settled.","Quietly change the entry in the system."],
+["A customer’s phone repair will take three days longer because a part has not arrived. The customer does not know yet. How would you respond?","Wait for the customer to call and then explain.","Tell the customer when they next visit the store.","Call them today, explain the delay honestly, and tell them when I will update them next.","Send a message about the delay and ask them to call me if there is any problem."],
+["You have one hour before opening to update price tags in a section, but you can see it will take about 90 minutes. What would you do?","Do what I can and wait to see if anyone asks.","Rush through all of it, even if I skip some checks.","Start with the busiest shelves, check carefully, and tell my supervisor early that I need more time or help.","Ask a colleague to help with part of it without telling the supervisor."],
 ["A new store rule says the customer’s mobile number must be entered at billing. Some customers do not like giving it. How would you respond?","Skip the step for customers who object, to avoid arguments.","Tell customers it is compulsory and there is no choice.","Understand why the rule was made, explain it to customers in simple words, and tell my manager if many refuse.","Ask my manager what to do when a customer refuses and follow the answer."],
 ["In training, the trainer shows a new way to give a product demo that is different from how you do it. What would you do first?","Keep using my own way because it has worked so far.","Try the new way once and then decide whether to keep it.","Use the new way only when the trainer is watching.","Practise the new way a few times, compare it with mine, and ask the trainer why it is recommended."],
 ["A customer has just paid for a laptop and is about to leave. What would you most likely do?","Say thank you and attend to the next customer.","Add the popular accessories to the bill, because most customers end up needing them.","Tell them a laptop bag and a protection plan are available and let them decide.","Ask how they will use the laptop, suggest one or two things that would really help, and accept it if they say no."],
-["A customer’s phone repair will take three days longer because a part has not arrived. The customer does not know yet. How would you respond?","Wait for the customer to call and then explain.","Tell the customer when they next visit the store.","Call them today, explain the delay honestly, and tell them when I will update them next.","Send a message about the delay and ask them to call me if there is any problem."],
-["Your team shares a daily tracking sheet. Your part is complete, but a colleague’s part is not. Which action is closest to your usual response?","Leave it, as everyone is responsible for their own part.","Complete it for them without telling anyone.","Tell the supervisor straight away that it is incomplete.","Ask the colleague if they need help. If they are stuck, offer to share the work or inform the supervisor."],
+["A customer returns a product within the return period, but it looks heavily used. The rule says only undamaged products can be returned. Which action is closest to your usual response?","Refuse right away because it looks used.","Check the product with the customer, explain the rule calmly, and ask my supervisor if I am not sure.","Accept the return to avoid an argument.","Ask the customer to wait while I find a supervisor, without explaining anything."],
+["Every morning you must check that the demo phones are charged and working. No one checks whether you do it. Which action is closest to your usual response?","Do it when I remember.","Do it carefully when I expect the supervisor to check.","Do it every day, but quickly, without noting any problems.","Do it every day, note any problem phones, and tell the right person."],
 ["A new phone model has just launched, and a customer asks about features you have not learned yet. How would you respond?","Say I do not know and suggest they check the company website.","Say honestly that I am still learning this model, check the details sheet or ask a colleague, and come back with the answer.","Answer from what I know about the older model.","Ask a colleague to handle all customers who ask about that model."],
 ["You tried a new selling tip from training with a customer, and it did not work. How would you respond?","Decide it does not work and stop using it.","Think about what went wrong, change my approach, try again with the next customer, and ask the trainer if I am unsure.","Try it a few more times in exactly the same way.","Use it only when a supervisor is watching."],
-["A customer asks you many questions about a camera phone, then says they will buy it online because it is cheaper. What would you most likely do?","Thank them politely and let them go.","Ask which model and price they found, tell them what the store can offer (such as exchange, easy returns or set-up help), and thank them whatever they decide.","Tell them that online products are often not genuine.","Ask them to wait while I request my manager for a lower price."],
-["A customer returns a product within the return period, but it looks heavily used. The rule says only undamaged products can be returned. Which action is closest to your usual response?","Refuse right away because it looks used.","Check the product with the customer, explain the rule calmly, and ask my supervisor if I am not sure.","Accept the return to avoid an argument.","Ask the customer to wait while I find a supervisor, without explaining anything."],
-["You have one hour before opening to update price tags in a section, but you can see it will take about 90 minutes. What would you do?","Do what I can and wait to see if anyone asks.","Rush through all of it, even if I skip some checks.","Start with the busiest shelves, check carefully, and tell my supervisor early that I need more time or help.","Ask a colleague to help with part of it without telling the supervisor."],
-["Your shift is changed from morning to afternoon for two weeks because the store needs it. Which action is closest to your usual response?","Ask why and for how long, tell the manager about any real problem I would have, and look for a workable solution while preparing to adjust.","Accept it without asking anything and adjust.","Refuse until my old timing is restored.","Accept it, but feel unhappy and do only the minimum in the new shift."],
-["Which statement is closest to you when something at work feels hard to learn, such as a billing step or a product feature?","I feel stressed and wait until someone explains it fully.","I break it into small parts and practise a little each day.","I depend on colleagues who already know it.","I avoid it unless I am told I must do it."],
 ["The store has a new accessory that few customers ask about. Your manager says everyone should try to sell some this week. Which action is closest to your usual response?","Learn what it does, think about which customers would really benefit, and tell them about it.","Mention it to every customer so I do not miss anyone.","Wait for customers to ask, since they know what they want.","Offer it mostly to customers who are in a hurry or do not ask questions, because they agree easily."],
-["A customer walks in five minutes before closing time. How would you most likely respond?","Help them properly, as I would any other customer, and finish my closing tasks after.","Help them quickly so I can finish on time.","Politely ask them to come back tomorrow.","Show what they asked for and ask them to decide quickly."],
-["You return from lunch 15 minutes late because of a personal matter, and your colleagues had to cover for you. How would you respond?","Tell the team and supervisor honestly, thank the colleague who covered, and plan so it does not happen again.","Say nothing and go straight back to work.","Say the reason briefly and go back to work.","Say it is only 15 minutes and others are late sometimes too."],
-["More customers now compare prices on their own phones while you are talking to them and ask you to match the price. How would you respond to this change?","Avoid such customers because it feels disrespectful.","Tell them our price is fixed, so comparing is not useful.","Look at what they show and explain what the store can and cannot match.","Learn the store’s offers in advance, ask what matters to them besides price, and compare honestly."],
-["Your supervisor watches you with a customer and later gives you three points to improve. You feel two of them are not fair. What would you most likely do?","Ignore all three because I think I did well.","Argue about the two and ignore the third.","Accept all three without questioning.","Think about all three, try them, and discuss the two I disagree with at a suitable time."],
-["Last week a customer asked you to tell him when a phone he wants arrives. Today it arrived and you are busy with a queue. What would you do first?","Wait for him to visit the store again.","Ask a colleague to inform him if they get time.","Finish with the current customer, then call him today and keep the phone aside if allowed.","Send a quick message now and call later."],
-["A customer says, “Last time someone here gave me wrong information.” You were not working then. How would you respond?","Tell them it was not me, so I cannot comment.","Say mistakes can happen and move on to helping them.","Say sorry for their experience, ask what happened, and make sure I give correct information now.","Say sorry and quickly give them the information they need."],
-["Every morning you must check that the demo phones are charged and working. No one checks whether you do it. Which action is closest to your usual response?","Do it when I remember.","Do it carefully when I expect the supervisor to check.","Do it every day, but quickly, without noting any problems.","Do it every day, note any problem phones, and tell the right person."],
-["A new product training is given only as a video, and you learn better with a person. What would you most likely do?","Watch it once and ask a colleague later if I have problems.","Watch it, note my questions, then ask the trainer or a colleague to go through it with me.","Watch it, but say it is not useful for me.","Play it while doing other tasks."],
-["The company offers optional short online lessons about new products. How would you most likely use them?","Spend a little time regularly and try to use what I learn with customers.","Do them when my manager reminds me.","Watch them when I have free time, but skip the quizzes.","Skip them, as I can learn through experience."],
-["A colleague has better monthly sales than you. How would you most likely respond?","Think they are just lucky with customers and carry on as usual.","Stand near the entrance so I meet customers first.","Work harder in my own way without discussing it with anyone.","Ask how they talk to customers and try one or two of their ideas."],
 ["A customer buys a TV and needs it delivered before a family function. The delivery team says it may be a day late. What would you do?","Promise it will come on time so the customer is happy.","Tell the customer the delivery team will try their best.","Tell the customer about the possible delay and ask them to contact the delivery team.","Tell the customer honestly, ask the delivery team or supervisor about an earlier slot, and update the customer."],
 ["A colleague who is stuck in traffic asks you to mark their attendance now, saying they will reach in 30 minutes. How would you respond?","Mark it, since it is only 30 minutes.","Say no politely, suggest they message the supervisor themselves, and offer to cover their customers until they arrive.","Say no politely and leave it there.","Say no, and tell the supervisor they are late without telling the colleague."],
-["The store changes its display layout, and popular products are now on different shelves. How would you respond?","Tell customers I do not know where things are now.","Go to the old places first and search when things are not there.","Walk through the new layout in free time and note where the top products are.","Ask a colleague each time a customer asks for something."],
+["Your shift is changed from morning to afternoon for two weeks because the store needs it. Which action is closest to your usual response?","Ask why and for how long, tell the manager about any real problem I would have, and look for a workable solution while preparing to adjust.","Accept it without asking anything and adjust.","Refuse until my old timing is restored.","Accept it, but feel unhappy and do only the minimum in the new shift."],
 ["After coaching, your customer-handling score improved last month, but this month it dropped a little. What would you most likely do?","Think the earlier improvement was luck.","Wait to see if it improves on its own.","Think about what I was doing differently when the score was higher, and ask for a short follow-up session.","Go back to my coaching notes and practise."]
 ];
 // Confidential key (points for A,B,C,D) from Section 2
-var KEY="4321 1432 4123 1324 2143 2431 1324 1243 4123 4213 1243 4123 1432 2143 1324 2134 1243 1234 2413 1432 2413 1423 1243 4312 2431 4321 4312 4231 1234 1234 1243 1243 1234 3412 4231 1234 1234 1432 1243 1243".split(" ");
+var KEY="4321 1432 4123 1324 2143 2431 1324 1432 4123 4213 1243 1243 1243 2143 1324 2134 1423 1234 2413 1432 4321 1234 1432 4312 1243".split(" ");
 var DIMS=["Sales Orientation","Customer Delight","Work Commitment","Adaptability","Trainability"];
-var SHEET_URL="https://script.google.com/macros/s/AKfycbyBNZPdSbJ5cm4w6Ora7l4DoQPsRRvl2c_hU96eLhUTmV0ISPCoctoqyTlAoxDJnYIgyA/exec";
+var SHEET_URL="https://script.google.com/macros/s/AKfycbxb5bCOWcvGbVhIvxXdDvZFctS6TWEAVP0IE0fM6mRODP2AsbYaWQRuKgchG5ztERKyUA/exec";
 var L="ABCD",ans=[],cur=0,tStart=0,info={},db=null;
 
 function $(id){return document.getElementById(id)}
@@ -154,9 +138,9 @@ function startAssessment(){
 }
 function loadQuestion(){
   var q=Q[cur];
-  $("question-num").textContent="Question "+(cur+1)+" of 40";
+  $("question-num").textContent="Question "+(cur+1)+" of 25";
   $("question-text").textContent=q[0];
-  $("progress-fill").style.width=Math.round(cur/40*100)+"%";
+  $("progress-fill").style.width=Math.round(cur/25*100)+"%";
   $("back-btn").style.visibility=cur?"visible":"hidden";
   var c=$("options-container");c.innerHTML="";
   for(var i=0;i<4;i++){
@@ -171,23 +155,23 @@ function loadQuestion(){
 var locked=false;
 function pick(k,btn){
   if(locked)return;locked=true;ans[cur]=k;btn.classList.add("sel");
-  setTimeout(function(){locked=false;cur++;if(cur>=40)finish();else loadQuestion()},220);
+  setTimeout(function(){locked=false;cur++;if(cur>=25)finish();else loadQuestion()},220);
 }
 function goBack(){if(cur>0&&!locked){cur--;loadQuestion()}}
 
 function score(a){
   var d=[0,0,0,0,0];
-  for(var i=0;i<40;i++)d[i%5]+=+KEY[i][a[i]];
+  for(var i=0;i<25;i++)d[i%5]+=+KEY[i][a[i]];
   return d;
 }
-function lvl(v){return v>=26?"Higher":v>=19?"Moderate":"Lower"}
-function tlvl(v){return v>=128?"Higher":v>=96?"Moderate":"Lower"}
-function nearDim(v){return (v>=17&&v<=20)||(v>=24&&v<=27)}
-function nearTot(v){return (v>=93&&v<=98)||(v>=125&&v<=130)}
+function lvl(v){return v>=16?"Higher":v>=12?"Moderate":"Lower"}
+function tlvl(v){return v>=80?"Higher":v>=60?"Moderate":"Lower"}
+function nearDim(v){return (v>=11&&v<=12)||(v>=15&&v<=16)}
+function nearTot(v){return (v>=58&&v<=61)||(v>=78&&v<=81)}
 function flags(a,mins){
   var f=[],cnt=[0,0,0,0];a.forEach(function(x){cnt[x]++});
-  if(Math.max.apply(null,cnt)>=28)f.push("Same-letter pattern");
-  if(mins<10)f.push("Completed in under 10 min");
+  if(Math.max.apply(null,cnt)>=18)f.push("Same-letter pattern");
+  if(mins<6)f.push("Completed in under 6 min");
   return f;
 }
 
@@ -218,15 +202,18 @@ async function send(){
 function showResult(mins){
   var d=score(ans),t=d.reduce(function(x,y){return x+y},0),f=flags(ans,mins);
   $("result-area").style.display="block";
-  $("res-total").textContent="Total "+t+" / 160 · "+tlvl(t);
-  var notes=f.slice();if(nearTot(t))notes.push("Total is borderline");
+  var now=new Date(),rows=[["Name",info.name],["Employee ID",info.empId],["Store / Batch",info.store],["Date",now.toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"})],["Time taken",Math.max(1,Math.round(mins))+" min"]];
+  var ib=$("res-info");ib.innerHTML="";
+  rows.forEach(function(r){var row=document.createElement("div");row.className="info-row";var a=document.createElement("span");a.textContent=r[0];var b=document.createElement("b");b.textContent=r[1];row.appendChild(a);row.appendChild(b);ib.appendChild(row)});
+  $("res-total").textContent="Total "+t+" / 100 · "+tlvl(t);
+  var notes=f.filter(function(x){return x.indexOf("under 6")<0});if(nearTot(t))notes.push("Total is borderline");
   $("res-flags").textContent=notes.length?notes.join(" · "):"";
   var h="";
   d.forEach(function(v,i){
-    h+='<div class="chart-row"><div class="chart-label"><span>'+DIMS[i]+'</span><span>'+v+' / 32 · '+lvl(v)+(nearDim(v)?' (borderline)':'')+'</span></div><div class="chart-bar-bg"><div class="chart-bar-fill" data-w="'+Math.round((v-8)/24*100)+'"></div></div></div>';
+    h+='<div class="chart-row"><div class="chart-label"><span>'+DIMS[i]+'</span><span>'+v+' / 20 · '+lvl(v)+(nearDim(v)?' (borderline)':'')+'</span></div><div class="chart-bar-bg"><div class="chart-bar-fill" data-w="'+Math.round((v-5)/15*100)+'"></div></div></div>';
   });
   $("res-bars").innerHTML=h;
-  setTimeout(function(){document.querySelectorAll(".chart-bar-fill").forEach(function(b){b.style.width=b.dataset.w+"%"})},60);
+  setTimeout(function(){document.querySelectorAll(".chart-bar-fill").forEach(function(b){var w=+b.dataset.w;b.style.backgroundSize=(w>0?10000/w:100)+"% 100%";b.style.width=w+"%"})},60);
 }
 
 </script>
